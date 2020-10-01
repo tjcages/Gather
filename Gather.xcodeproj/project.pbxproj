@@ -34,7 +34,7 @@
 		2F58E2AA2522767600BE0084 /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F58E2A92522767600BE0084 /* AuthenticationService.swift */; };
 		2F7F99472525216D0083A7DF /* EmojiTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7F99462525216D0083A7DF /* EmojiTextView.swift */; };
 		2F7F994F252560940083A7DF /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7F994E252560930083A7DF /* ScheduleView.swift */; };
-		2F8938252526411000EB5F46 /* GoogleService-Info 2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2F8938242526411000EB5F46 /* GoogleService-Info 2.plist */; };
+		2F8938342526422200EB5F46 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2F8938332526422100EB5F46 /* GoogleService-Info.plist */; };
 		2F9364572522A4520014937E /* Publisher+Assign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9364562522A4520014937E /* Publisher+Assign.swift */; };
 		2F9364612522B4CF0014937E /* HideNavigationBarModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9364602522B4CF0014937E /* HideNavigationBarModifier.swift */; };
 		2F9364672522B5510014937E /* AddTaskButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9364662522B5510014937E /* AddTaskButton.swift */; };
@@ -95,7 +95,7 @@
 		2F7F99462525216D0083A7DF /* EmojiTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiTextView.swift; sourceTree = "<group>"; };
 		2F7F994E252560930083A7DF /* ScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
 		2F8938202526401900EB5F46 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "Launch Screen.storyboard"; path = "/Users/tyler/Documents/Gather/Gather/Launch Screen.storyboard"; sourceTree = "<absolute>"; };
-		2F8938242526411000EB5F46 /* GoogleService-Info 2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info 2.plist"; path = "../../../Library/Mobile Documents/com~apple~CloudDocs/.Trash/GoogleService-Info 2.plist"; sourceTree = "<group>"; };
+		2F8938332526422100EB5F46 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Desktop/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2F8F10CB252245C3001AB045 /* TaskRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRepository.swift; sourceTree = "<group>"; };
 		2F9364562522A4520014937E /* Publisher+Assign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+Assign.swift"; sourceTree = "<group>"; };
 		2F9364602522B4CF0014937E /* HideNavigationBarModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideNavigationBarModifier.swift; sourceTree = "<group>"; };
@@ -281,7 +281,7 @@
 				2F2AD88D2522382500AB13D5 /* UI */,
 				2F3A219E2521399300B91938 /* Assets.xcassets */,
 				2F3A21A62521399300B91938 /* Info.plist */,
-				2F8938242526411000EB5F46 /* GoogleService-Info 2.plist */,
+				2F8938332526422100EB5F46 /* GoogleService-Info.plist */,
 				2F3A219B2521399200B91938 /* Gather.xcdatamodeld */,
 				2F8938202526401900EB5F46 /* Launch Screen.storyboard */,
 				2F3A21A02521399300B91938 /* Preview Content */,
@@ -545,8 +545,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F58E29A252275F300BE0084 /* Assets.xcassets in Resources */,
-				2F8938252526411000EB5F46 /* GoogleService-Info 2.plist in Resources */,
 				2F58E29D252275F300BE0084 /* Preview Assets.xcassets in Resources */,
+				2F8938342526422200EB5F46 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
