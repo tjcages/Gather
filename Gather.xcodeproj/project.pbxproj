@@ -29,7 +29,6 @@
 		2F58E296252275D500BE0084 /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2AD8A92522396200AB13D5 /* TaskCell.swift */; };
 		2F58E29A252275F300BE0084 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F3A219E2521399300B91938 /* Assets.xcassets */; };
 		2F58E29B252275F300BE0084 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F3A21A32521399300B91938 /* LaunchScreen.storyboard */; };
-		2F58E29C252275F300BE0084 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2F8F10DD25225FF5001AB045 /* GoogleService-Info.plist */; };
 		2F58E29D252275F300BE0084 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F3A21A12521399300B91938 /* Preview Assets.xcassets */; };
 		2F58E2AA2522767600BE0084 /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F58E2A92522767600BE0084 /* AuthenticationService.swift */; };
 		2F7F99472525216D0083A7DF /* EmojiTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7F99462525216D0083A7DF /* EmojiTextView.swift */; };
@@ -63,8 +62,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		016E6FF7437710B4B6C11995 /* Pods-Gather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gather.release.xcconfig"; path = "Target Support Files/Pods-Gather/Pods-Gather.release.xcconfig"; sourceTree = "<group>"; };
-		0749F2A6DAE43ACCE96B039F /* Pods-Gather-GatherUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gather-GatherUITests.release.xcconfig"; path = "Target Support Files/Pods-Gather-GatherUITests/Pods-Gather-GatherUITests.release.xcconfig"; sourceTree = "<group>"; };
 		0EB5AC6748F180704BD72DD8 /* Pods_Gather_GatherUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gather_GatherUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		298CC335D13DAD41C0C1FDDE /* Pods_Gather.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gather.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F0A5C8E2522854F0059EF92 /* EnvironmentKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentKey.swift; sourceTree = "<group>"; };
@@ -101,7 +98,6 @@
 		2F7F99462525216D0083A7DF /* EmojiTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiTextView.swift; sourceTree = "<group>"; };
 		2F7F994E252560930083A7DF /* ScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
 		2F8F10CB252245C3001AB045 /* TaskRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRepository.swift; sourceTree = "<group>"; };
-		2F8F10DD25225FF5001AB045 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2F9364562522A4520014937E /* Publisher+Assign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+Assign.swift"; sourceTree = "<group>"; };
 		2F9364602522B4CF0014937E /* HideNavigationBarModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideNavigationBarModifier.swift; sourceTree = "<group>"; };
 		2F9364662522B5510014937E /* AddTaskButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskButton.swift; sourceTree = "<group>"; };
@@ -125,11 +121,7 @@
 		2FBFBA9225262FED00FD0468 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		2FE455072523A63000C02A52 /* RoutineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineView.swift; sourceTree = "<group>"; };
 		2FE455122523A7EB00C02A52 /* RoutineCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineCell.swift; sourceTree = "<group>"; };
-		4F25050B03A54B84A2067D34 /* Pods-Gather-GatherUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gather-GatherUITests.debug.xcconfig"; path = "Target Support Files/Pods-Gather-GatherUITests/Pods-Gather-GatherUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		59A5C68530662C8EC3E38D98 /* Pods-Gather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gather.debug.xcconfig"; path = "Target Support Files/Pods-Gather/Pods-Gather.debug.xcconfig"; sourceTree = "<group>"; };
-		9F4BA7C16EA9CA60644E2DA4 /* Pods-GatherTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GatherTests.debug.xcconfig"; path = "Target Support Files/Pods-GatherTests/Pods-GatherTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CAC6D06A41A21605CDBAA231 /* Pods_GatherTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GatherTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F2366FB5C6941C2C23247A6E /* Pods-GatherTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GatherTests.release.xcconfig"; path = "Target Support Files/Pods-GatherTests/Pods-GatherTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -258,7 +250,6 @@
 				2F3A21AE2521399300B91938 /* GatherTests */,
 				2F3A21B92521399300B91938 /* GatherUITests */,
 				2F3A21932521399200B91938 /* Products */,
-				3D15D4FD54930B9391CFCE54 /* Pods */,
 				FF082DC49280F1CE0CAC2118 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -283,7 +274,6 @@
 				2F3A219E2521399300B91938 /* Assets.xcassets */,
 				2F3A21A32521399300B91938 /* LaunchScreen.storyboard */,
 				2F3A21A62521399300B91938 /* Info.plist */,
-				2F8F10DD25225FF5001AB045 /* GoogleService-Info.plist */,
 				2F3A219B2521399200B91938 /* Gather.xcdatamodeld */,
 				2F3A21A02521399300B91938 /* Preview Content */,
 			);
@@ -400,19 +390,6 @@
 				2F7F99462525216D0083A7DF /* EmojiTextView.swift */,
 			);
 			path = TextView;
-			sourceTree = "<group>";
-		};
-		3D15D4FD54930B9391CFCE54 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				59A5C68530662C8EC3E38D98 /* Pods-Gather.debug.xcconfig */,
-				016E6FF7437710B4B6C11995 /* Pods-Gather.release.xcconfig */,
-				4F25050B03A54B84A2067D34 /* Pods-Gather-GatherUITests.debug.xcconfig */,
-				0749F2A6DAE43ACCE96B039F /* Pods-Gather-GatherUITests.release.xcconfig */,
-				9F4BA7C16EA9CA60644E2DA4 /* Pods-GatherTests.debug.xcconfig */,
-				F2366FB5C6941C2C23247A6E /* Pods-GatherTests.release.xcconfig */,
-			);
-			path = Pods;
 			sourceTree = "<group>";
 		};
 		FF082DC49280F1CE0CAC2118 /* Frameworks */ = {
@@ -547,7 +524,6 @@
 			files = (
 				2F58E29A252275F300BE0084 /* Assets.xcassets in Resources */,
 				2F58E29B252275F300BE0084 /* LaunchScreen.storyboard in Resources */,
-				2F58E29C252275F300BE0084 /* GoogleService-Info.plist in Resources */,
 				2F58E29D252275F300BE0084 /* Preview Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -857,7 +833,6 @@
 		};
 		2F3A21C32521399300B91938 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9F4BA7C16EA9CA60644E2DA4 /* Pods-GatherTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -880,7 +855,6 @@
 		};
 		2F3A21C42521399300B91938 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F2366FB5C6941C2C23247A6E /* Pods-GatherTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -903,7 +877,6 @@
 		};
 		2F3A21C62521399300B91938 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4F25050B03A54B84A2067D34 /* Pods-Gather-GatherUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -924,7 +897,6 @@
 		};
 		2F3A21C72521399300B91938 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0749F2A6DAE43ACCE96B039F /* Pods-Gather-GatherUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -945,7 +917,6 @@
 		};
 		2F4897D12522747D00F6DD14 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 59A5C68530662C8EC3E38D98 /* Pods-Gather.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -968,7 +939,6 @@
 		};
 		2F4897D22522747D00F6DD14 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 016E6FF7437710B4B6C11995 /* Pods-Gather.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
