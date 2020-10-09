@@ -1,5 +1,5 @@
 //
-//  ScheduleView.swift
+//  ScheduleOptionsView.swift
 //  Gather
 //
 //  Created by Tyler Cagle on 9/30/20.
@@ -8,31 +8,14 @@
 import SwiftUI
 
 enum ScheduleOptions: String {
-    case today = "calendar"
-    case minutes = "timer"
-}
-
-struct ScheduleView: View {
-    @Binding var currentlySelectedId: ScheduleOptions
-
-    init(selection: Binding<ScheduleOptions>) {
-        self._currentlySelectedId = selection
-    }
-
-    var body: some View {
-        HStack(spacing: Sizes.xSmall) {
-            ScheduleOptionsView(task: .today, title: "Today", scheduleColor: Colors.green, itemSelected: $currentlySelectedId)
-
-            ScheduleOptionsView(task: .minutes, title: "5-10 minutes", scheduleColor: Colors.blue, itemSelected: $currentlySelectedId)
-        }
-    }
+    case schedule = "calendar"
+    case duration = "timer"
 }
 
 struct ScheduleOptionsView: View {
     @State var task: ScheduleOptions
     @State var title: String
     @State var scheduleColor: Color
-
     @Binding var itemSelected: ScheduleOptions {
         didSet {
             if itemSelected == task {
@@ -46,6 +29,8 @@ struct ScheduleOptionsView: View {
             }
         }
     }
+    
+    var buttonPressed: () -> () = { }
 
     @State var expanded = false
 
@@ -70,19 +55,14 @@ struct ScheduleOptionsView: View {
             .contentShape(Rectangle())
             .overlay(
                 RoundedRectangle(cornerRadius: Sizes.Spacer)
-                    .stroke(Colors.subheadline.opacity(0.3), lineWidth: 1)
+                    .stroke(scheduleColor, lineWidth: 1)
             )
             .scaleEffect(expanded ? 1.1 : 1.0)
             .onTapGesture {
+                buttonPressed()
                 withAnimation(Animation.easeInOut(duration: Animation.animationQuick)) {
                     self.itemSelected = self.task
                 }
         }
-    }
-}
-
-struct ScheduleView_Previews: PreviewProvider {
-    static var previews: some View {
-        ScheduleView(selection: .constant(.today))
     }
 }

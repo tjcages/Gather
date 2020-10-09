@@ -19,6 +19,6 @@ struct Global {
 // MARK: -Animations
 extension Animation {
     static let animationQuick: Double = 0.1
-    static let animationIn: Double = 0.3
-    static let animationOut: Double = 0.5
+    static let animationIn: Double = 0.2
+    static let animationOut: Double = 0.4
 }

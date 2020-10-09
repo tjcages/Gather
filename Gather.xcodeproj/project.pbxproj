@@ -15,8 +15,11 @@
 		2F0A5CAC252292930059EF92 /* SignInWithAppleCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0A5CAB252292930059EF92 /* SignInWithAppleCoordinator.swift */; };
 		2F0A5CB42522A0780059EF92 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0A5CB32522A0780059EF92 /* SettingsView.swift */; };
 		2F0A5CB92522A09E0059EF92 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0A5CB82522A09E0059EF92 /* SettingsViewModel.swift */; };
+		2F0B446D2530F92900F2A9C8 /* DefaultItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0B446C2530F92900F2A9C8 /* DefaultItemView.swift */; };
 		2F3A21B02521399300B91938 /* GatherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3A21AF2521399300B91938 /* GatherTests.swift */; };
 		2F3A21BB2521399300B91938 /* GatherUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3A21BA2521399300B91938 /* GatherUITests.swift */; };
+		2F4F8D2425300F6A006EAE26 /* IconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4F8D2325300F6A006EAE26 /* IconView.swift */; };
+		2F4F8D2C2530141F006EAE26 /* ScheduleItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4F8D2B2530141F006EAE26 /* ScheduleItemView.swift */; };
 		2F58E28B252275D500BE0084 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3A21952521399200B91938 /* AppDelegate.swift */; };
 		2F58E28C252275D500BE0084 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3A21972521399200B91938 /* SceneDelegate.swift */; };
 		2F58E28D252275D500BE0084 /* AppDelegate+Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2AD8FA2522447C00AB13D5 /* AppDelegate+Injection.swift */; };
@@ -33,8 +36,7 @@
 		2F58E29D252275F300BE0084 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F3A21A12521399300B91938 /* Preview Assets.xcassets */; };
 		2F58E2AA2522767600BE0084 /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F58E2A92522767600BE0084 /* AuthenticationService.swift */; };
 		2F7F99472525216D0083A7DF /* EmojiTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7F99462525216D0083A7DF /* EmojiTextView.swift */; };
-		2F7F994F252560940083A7DF /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7F994E252560930083A7DF /* ScheduleView.swift */; };
-		2F8938342526422200EB5F46 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2F8938332526422100EB5F46 /* GoogleService-Info.plist */; };
+		2F7F994F252560940083A7DF /* ScheduleOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7F994E252560930083A7DF /* ScheduleOptionsView.swift */; };
 		2F9364572522A4520014937E /* Publisher+Assign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9364562522A4520014937E /* Publisher+Assign.swift */; };
 		2F9364612522B4CF0014937E /* HideNavigationBarModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9364602522B4CF0014937E /* HideNavigationBarModifier.swift */; };
 		2F9364672522B5510014937E /* AddTaskButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9364662522B5510014937E /* AddTaskButton.swift */; };
@@ -56,6 +58,8 @@
 		2FBF8F422524315E004BF4D3 /* SendButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBF8F412524315D004BF4D3 /* SendButton.swift */; };
 		2FBF8F4725243338004BF4D3 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBF8F4625243338004BF4D3 /* TextView.swift */; };
 		2FBFBA9325262FED00FD0468 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBFBA9225262FED00FD0468 /* Colors.swift */; };
+		2FC558422530036F00A52E3B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2FC558412530036F00A52E3B /* GoogleService-Info.plist */; };
+		2FC558482530043B00A52E3B /* Routine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC558472530043B00A52E3B /* Routine.swift */; };
 		2FE455082523A63000C02A52 /* RoutineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE455072523A63000C02A52 /* RoutineView.swift */; };
 		2FE455132523A7EB00C02A52 /* RoutineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE455122523A7EB00C02A52 /* RoutineCell.swift */; };
 		DBA299538194B9F5BFF6DC05 /* Pods_Gather_GatherUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFA37A68D582FF3E96BB1E29 /* Pods_Gather_GatherUITests.framework */; };
@@ -69,6 +73,7 @@
 		2F0A5CAB252292930059EF92 /* SignInWithAppleCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithAppleCoordinator.swift; sourceTree = "<group>"; };
 		2F0A5CB32522A0780059EF92 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		2F0A5CB82522A09E0059EF92 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		2F0B446C2530F92900F2A9C8 /* DefaultItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultItemView.swift; sourceTree = "<group>"; };
 		2F2AD87C252236EB00AB13D5 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		2F2AD8882522382100AB13D5 /* TaskListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListView.swift; sourceTree = "<group>"; };
 		2F2AD8A92522396200AB13D5 /* TaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
@@ -91,11 +96,12 @@
 		2F3A21BC2521399300B91938 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2F48976B25226A0C00F6DD14 /* FirestoreTaskRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreTaskRepository.swift; sourceTree = "<group>"; };
 		2F4897A62522747A00F6DD14 /* Gather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gather.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2F4F8D2325300F6A006EAE26 /* IconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconView.swift; sourceTree = "<group>"; };
+		2F4F8D2B2530141F006EAE26 /* ScheduleItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleItemView.swift; sourceTree = "<group>"; };
 		2F58E2A92522767600BE0084 /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
 		2F7F99462525216D0083A7DF /* EmojiTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiTextView.swift; sourceTree = "<group>"; };
-		2F7F994E252560930083A7DF /* ScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
+		2F7F994E252560930083A7DF /* ScheduleOptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleOptionsView.swift; sourceTree = "<group>"; };
 		2F8938202526401900EB5F46 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "Launch Screen.storyboard"; path = "/Users/tyler/Documents/Gather/Gather/Launch Screen.storyboard"; sourceTree = "<absolute>"; };
-		2F8938332526422100EB5F46 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Desktop/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2F8F10CB252245C3001AB045 /* TaskRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRepository.swift; sourceTree = "<group>"; };
 		2F9364562522A4520014937E /* Publisher+Assign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+Assign.swift"; sourceTree = "<group>"; };
 		2F9364602522B4CF0014937E /* HideNavigationBarModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideNavigationBarModifier.swift; sourceTree = "<group>"; };
@@ -118,6 +124,8 @@
 		2FBF8F412524315D004BF4D3 /* SendButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendButton.swift; sourceTree = "<group>"; };
 		2FBF8F4625243338004BF4D3 /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
 		2FBFBA9225262FED00FD0468 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		2FC558412530036F00A52E3B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		2FC558472530043B00A52E3B /* Routine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routine.swift; sourceTree = "<group>"; };
 		2FE455072523A63000C02A52 /* RoutineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineView.swift; sourceTree = "<group>"; };
 		2FE455122523A7EB00C02A52 /* RoutineCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineCell.swift; sourceTree = "<group>"; };
 		90513C14414B95773A4FEA31 /* Pods-Gather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gather.release.xcconfig"; path = "Target Support Files/Pods-Gather/Pods-Gather.release.xcconfig"; sourceTree = "<group>"; };
@@ -184,6 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				2F2AD87C252236EB00AB13D5 /* Task.swift */,
+				2FC558472530043B00A52E3B /* Routine.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -201,13 +210,9 @@
 		2F2AD8912522383900AB13D5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				2FE455072523A63000C02A52 /* RoutineView.swift */,
-				2F2AD8882522382100AB13D5 /* TaskListView.swift */,
-				2F93646E2522B9A70014937E /* GreetingView.swift */,
-				2FBF8F4B252438EB004BF4D3 /* TextView */,
-				2F9364652522B5460014937E /* Buttons */,
-				2F2AD8AE2522396700AB13D5 /* Cells */,
-				2FBF8F2025240976004BF4D3 /* PartialSheet */,
+				2FC558462530042E00A52E3B /* Routine */,
+				2F75D08B253005D300DD47E9 /* Tasks */,
+				2F75D0902530061100DD47E9 /* Extra */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -215,20 +220,11 @@
 		2F2AD8A5252238C400AB13D5 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				2FBF8EA1252403DF004BF4D3 /* NewItemView.swift */,
+				2F4F8D2125300F48006EAE26 /* NewItem */,
 				2F0A5CB32522A0780059EF92 /* SettingsView.swift */,
 				2F0A5CA625228D230059EF92 /* SignInView.swift */,
 			);
 			path = Screens;
-			sourceTree = "<group>";
-		};
-		2F2AD8AE2522396700AB13D5 /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-				2FE455122523A7EB00C02A52 /* RoutineCell.swift */,
-				2F2AD8A92522396200AB13D5 /* TaskCell.swift */,
-			);
-			path = Cells;
 			sourceTree = "<group>";
 		};
 		2F2AD8BD25223C1E00AB13D5 /* ViewModels */ = {
@@ -281,7 +277,7 @@
 				2F2AD88D2522382500AB13D5 /* UI */,
 				2F3A219E2521399300B91938 /* Assets.xcassets */,
 				2F3A21A62521399300B91938 /* Info.plist */,
-				2F8938332526422100EB5F46 /* GoogleService-Info.plist */,
+				2FC558412530036F00A52E3B /* GoogleService-Info.plist */,
 				2F3A219B2521399200B91938 /* Gather.xcdatamodeld */,
 				2F8938202526401900EB5F46 /* Launch Screen.storyboard */,
 				2F3A21A02521399300B91938 /* Preview Content */,
@@ -324,6 +320,34 @@
 			path = Test;
 			sourceTree = "<group>";
 		};
+		2F4F8D2125300F48006EAE26 /* NewItem */ = {
+			isa = PBXGroup;
+			children = (
+				2FBF8EA1252403DF004BF4D3 /* NewItemView.swift */,
+				2F4F8D2225300F61006EAE26 /* Views */,
+				2F4F8D332530BBB3006EAE26 /* Schedule */,
+			);
+			name = NewItem;
+			sourceTree = "<group>";
+		};
+		2F4F8D2225300F61006EAE26 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2F0B446C2530F92900F2A9C8 /* DefaultItemView.swift */,
+				2F4F8D2325300F6A006EAE26 /* IconView.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		2F4F8D332530BBB3006EAE26 /* Schedule */ = {
+			isa = PBXGroup;
+			children = (
+				2F4F8D2B2530141F006EAE26 /* ScheduleItemView.swift */,
+				2F7F994E252560930083A7DF /* ScheduleOptionsView.swift */,
+			);
+			name = Schedule;
+			sourceTree = "<group>";
+		};
 		2F58E2AE2522767A00BE0084 /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -331,6 +355,34 @@
 				2F0A5CAB252292930059EF92 /* SignInWithAppleCoordinator.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		2F75D08B253005D300DD47E9 /* Tasks */ = {
+			isa = PBXGroup;
+			children = (
+				2F2AD8882522382100AB13D5 /* TaskListView.swift */,
+				2F2AD8A92522396200AB13D5 /* TaskCell.swift */,
+			);
+			name = Tasks;
+			sourceTree = "<group>";
+		};
+		2F75D08F253005FB00DD47E9 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				2F93646E2522B9A70014937E /* GreetingView.swift */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		2F75D0902530061100DD47E9 /* Extra */ = {
+			isa = PBXGroup;
+			children = (
+				2F75D08F253005FB00DD47E9 /* Headers */,
+				2FBF8F4B252438EB004BF4D3 /* TextView */,
+				2F9364652522B5460014937E /* Buttons */,
+				2FBF8F2025240976004BF4D3 /* PartialSheet */,
+			);
+			path = Extra;
 			sourceTree = "<group>";
 		};
 		2F93645B2522B38A0014937E /* Logic */ = {
@@ -349,10 +401,9 @@
 		2F9364652522B5460014937E /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
-				2FBF8E9C2523F8E5004BF4D3 /* AddNewView.swift */,
-				2F7F994E252560930083A7DF /* ScheduleView.swift */,
-				2FBF8F412524315D004BF4D3 /* SendButton.swift */,
 				2F9364662522B5510014937E /* AddTaskButton.swift */,
+				2FBF8E9C2523F8E5004BF4D3 /* AddNewView.swift */,
+				2FBF8F412524315D004BF4D3 /* SendButton.swift */,
 				2F0A5CA125228C200059EF92 /* SignInWithAppleButton.swift */,
 			);
 			path = Buttons;
@@ -399,6 +450,15 @@
 				2F7F99462525216D0083A7DF /* EmojiTextView.swift */,
 			);
 			path = TextView;
+			sourceTree = "<group>";
+		};
+		2FC558462530042E00A52E3B /* Routine */ = {
+			isa = PBXGroup;
+			children = (
+				2FE455072523A63000C02A52 /* RoutineView.swift */,
+				2FE455122523A7EB00C02A52 /* RoutineCell.swift */,
+			);
+			path = Routine;
 			sourceTree = "<group>";
 		};
 		34F724EC7E9C05826A7BCF45 /* Frameworks */ = {
@@ -546,7 +606,7 @@
 			files = (
 				2F58E29A252275F300BE0084 /* Assets.xcassets in Resources */,
 				2F58E29D252275F300BE0084 /* Preview Assets.xcassets in Resources */,
-				2F8938342526422200EB5F46 /* GoogleService-Info.plist in Resources */,
+				2FC558422530036F00A52E3B /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -681,12 +741,14 @@
 				2FBF8F2F25240A63004BF4D3 /* DragState.swift in Sources */,
 				2FBF8F3025240A63004BF4D3 /* PartialSheetManager.swift in Sources */,
 				2FBF8F4725243338004BF4D3 /* TextView.swift in Sources */,
+				2FC558482530043B00A52E3B /* Routine.swift in Sources */,
 				2FBF8F3125240A63004BF4D3 /* PartialSheetStyle.swift in Sources */,
 				2FBF8F3225240A63004BF4D3 /* PartialSheetViewModifier.swift in Sources */,
 				2FBF8F3325240A63004BF4D3 /* View+IfDeviceType.swift in Sources */,
+				2F4F8D2425300F6A006EAE26 /* IconView.swift in Sources */,
 				2FBF8F3425240A63004BF4D3 /* View+PartialSheetModifier.swift in Sources */,
 				2FBF8EA2252403DF004BF4D3 /* NewItemView.swift in Sources */,
-				2F7F994F252560940083A7DF /* ScheduleView.swift in Sources */,
+				2F7F994F252560940083A7DF /* ScheduleOptionsView.swift in Sources */,
 				2F58E28B252275D500BE0084 /* AppDelegate.swift in Sources */,
 				2F58E28C252275D500BE0084 /* SceneDelegate.swift in Sources */,
 				2FE455082523A63000C02A52 /* RoutineView.swift in Sources */,
@@ -704,12 +766,14 @@
 				2F58E291252275D500BE0084 /* FirestoreTaskRepository.swift in Sources */,
 				2F58E292252275D500BE0084 /* TaskRepository.swift in Sources */,
 				2F93646F2522B9A70014937E /* GreetingView.swift in Sources */,
+				2F4F8D2C2530141F006EAE26 /* ScheduleItemView.swift in Sources */,
 				2F58E293252275D500BE0084 /* TestDataTaskRepository.swift in Sources */,
 				2F0A5CA225228C200059EF92 /* SignInWithAppleButton.swift in Sources */,
 				2FBF8E9D2523F8E5004BF4D3 /* AddNewView.swift in Sources */,
 				2F58E294252275D500BE0084 /* ContentView.swift in Sources */,
 				2F9364842522BB7A0014937E /* Sizes.swift in Sources */,
 				2F58E295252275D500BE0084 /* TaskListView.swift in Sources */,
+				2F0B446D2530F92900F2A9C8 /* DefaultItemView.swift in Sources */,
 				2F93647C2522BB5A0014937E /* Fonts.swift in Sources */,
 				2F58E2AA2522767600BE0084 /* AuthenticationService.swift in Sources */,
 				2FA2890C2523F1AC0017C6C3 /* AddShadowModifier.swift in Sources */,

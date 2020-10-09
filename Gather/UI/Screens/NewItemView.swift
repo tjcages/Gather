@@ -9,184 +9,92 @@ import SwiftUI
 import Introspect
 
 struct NewItemView: View {
-    @State private var sendNewItem = false
-    @State private var addDescription = false
-    @State private var showReturnDescription = true
+    @ObservedObject var taskCellVM: TaskCellViewModel
+    @Binding var presenting: Bool
+    @State private var showing: Bool = false
 
-    @State private var textFieldText = ""
-    @State private var descriptionFieldText = ""
-    @State private var emojiIcon = ""
+    var onCommit: (Result<Task, InputError>) -> Void = { _ in }
 
-    @State var taskSelection: TaskItems = .task
-    @State var scheduleSelection: ScheduleOptions = .today
+    var offset: CGFloat = 0
 
-    @State private var titleFirstResponder = false
-    @State private var descriptionFirstResponder = false
+    @GestureState private var translation: CGFloat = 0
+    @State private var snapRatio: CGFloat = 0.3
 
-    //MARK: -Declare views
-
-    var titleView: some View {
-        PlaceholderTextField(
-            placeholder:
-                Text(placeholder()),
-            font: .heavy,
-            size: .large,
-            tag: 0,
-            becomeFirstResponder: $titleFirstResponder,
-            text: $textFieldText,
-            commit: {
-                addDescription = true
-                showReturnDescription = false
-                descriptionFirstResponder = true
-            },
-            ended: {
-
-            })
-    }
-
-    var descriptionView: some View {
-        PlaceholderTextField(
-            placeholder:
-                Text("Add description"),
-            font: .regular,
-            size: .medium,
-            tag: 1,
-            becomeFirstResponder: $descriptionFirstResponder,
-            text: $descriptionFieldText,
-            commit: {
-                if descriptionFieldText.isEmpty {
-                    addDescription = false
-                }
-            },
-            ended: {
-                if descriptionFieldText.isEmpty {
-                    DispatchQueue.main.async {
-                        self.addDescription = false
-                    }
-                }
-            })
-    }
-
-    var descriptionPlaceholder: some View {
-        Text("Press return to add a description")
-            .customFont(.medium, category: .medium)
-            .foregroundColor(Colors.subheadline)
-            .padding(.bottom, Sizes.Spacer)
-            .onTapGesture {
-                addDescription = true
-                showReturnDescription = false
-                descriptionFirstResponder = true
-            }
-            .onAppear {
-                delayWithSeconds(4) {
-                    withAnimation {
-                        self.showReturnDescription = false
-                    }
-                }
-        }
-    }
-
-    @State private var selectingIcon = false
-
-    var iconView: some View {
-        HStack(alignment: .center, spacing: 8) {
-            if !selectingIcon {
-                Image(systemName: "smiley.fill")
-                    .resizable()
-                    .frame(width: Sizes.xSmall, height: Sizes.xSmall)
-                    .foregroundColor(Colors.subheadline)
-                    .padding([.top, .leading, .bottom], Sizes.Spacer)
-
-                Text("Add icon")
-                    .customFont(.heavy, category: .small)
-                    .foregroundColor(Colors.subheadline)
-                    .padding([.top, .trailing, .bottom], Sizes.Spacer)
-
-            } else {
-                EmojiTextView(emojiText: $emojiIcon, font: uiFont(.heavy, category: .extraLarge), onDone: {
-                        selectingIcon = false
-                    })
-                    .frame(width: Sizes.Large + Sizes.Spacer, height: Sizes.Large + Sizes.Spacer)
-                    .padding(.trailing, Sizes.Spacer)
-                    .offset(x: -4, y: 0)
-            }
-        }
-            .background(Colors.subheadline.opacity(selectingIcon ? 0 : 0.1))
-            .cornerRadius(Sizes.Spacer / 2)
-            .padding(.bottom, selectingIcon ? 0 : Sizes.xSmall/2)
-            .onTapGesture {
-                selectingIcon = true
-            }
-            .onDisappear {
-                selectingIcon = false
-        }
-    }
+    @State private var showSchedule: Bool = false
 
     //MARK: -UI Logic
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 0) {
-            HStack(alignment: .bottom) {
-                AddNewView(selection: $taskSelection)
-                    .padding(.vertical, Sizes.xSmall)
-
-                Spacer()
-
-                SendButton(addTask: $sendNewItem)
-            }
-                .padding(.leading, Sizes.xSmall)
+        VStack {
+            Spacer()
 
             VStack(alignment: .leading, spacing: 0) {
-                // Add an icon
-                iconView
-
-                // Title textfield
-                titleView
-
-                // Description placeholder
-                if descriptionFieldText.isEmpty && !textFieldText.isEmpty && showReturnDescription {
-                    descriptionPlaceholder
+                if !showSchedule {
+                    DefaultItemView(taskCellVM: taskCellVM) { result in
+                        onCommit(result)
+                    } schedulePressed: {
+                        // Schedule pressed
+                        withAnimation() {
+                            self.showSchedule.toggle()
+                        }
+                    } durationPressed: {
+                        // Duration pressed
+                    }
+                } else {
+                    ScheduleItemView()
                 }
-
-                if addDescription {
-                    descriptionView
-                        .offset(x: 0, y: -Sizes.Spacer)
-                }
-
-                ScheduleView(selection: $scheduleSelection)
-                    .padding(.top, Sizes.Spacer)
-
-                Spacer()
-                    .frame(height: 100)
             }
-                .padding(.top, Sizes.xSmall)
-                .padding(.horizontal, Sizes.Default)
-                .background(
-                    Colors.cellBackground
-                        .cornerRadius(Sizes.Spacer)
-                        .onTapGesture {
-                            UIApplication.shared.endEditing()
+                .offset(y: showing ? max(self.offset + self.translation, 0) : 364)
+                .animation(.interactiveSpring())
+                .gesture(
+                    DragGesture()
+                        .updating(self.$translation) { value, state, _ in
+                            state = value.translation.height
+                        }
+                        .onEnded { value in
+
                     }
                 )
         }
+            .edgesIgnoringSafeArea(.bottom)
+            .background(
+                Colors.black
+                    .opacity(showing ? 0.4 : 0)
+                    .edgesIgnoringSafeArea(.all)
+                    .onTapGesture {
+                        dismiss()
+                }
+            )
             .onAppear {
-                titleFirstResponder = true
+                showDisplay()
         }
     }
 
-    func placeholder() -> String {
-        var placeholder = "Enter task title"
-        if taskSelection == .event {
-            placeholder = "Enter event information"
-        } else if taskSelection == .project {
-            placeholder = "Enter project details"
+    func showDisplay() {
+        withAnimation(Animation.easeInOut(duration: Animation.animationIn)) {
+            self.showing.toggle()
         }
-        return placeholder
+    }
+
+    func dismiss() {
+        let duration = Animation.animationIn
+        UIApplication.shared.endEditing()
+        withAnimation(Animation.easeInOut(duration: duration)) {
+            self.showing.toggle()
+            delayWithSeconds(duration) {
+                withAnimation(Animation.easeInOut(duration: duration)) {
+                    self.presenting.toggle()
+                }
+            }
+        }
     }
 }
 
-struct NewItemView_Previews: PreviewProvider {
-    static var previews: some View {
-        NewItemView()
+struct SizePreferenceKey: PreferenceKey {
+    typealias Value = CGSize
+    static var defaultValue: Value = .zero
+
+    static func reduce(value: inout Value, nextValue: () -> Value) {
+        value = nextValue()
     }
 }

@@ -7,27 +7,23 @@
 
 import SwiftUI
 
+enum ActiveSheet {
+    case first
+    case second
+    case third
+}
+
 struct ContentView: View {
-    @EnvironmentObject var partialSheetManager: PartialSheetManager
     @ObservedObject var taskListVM = TaskListViewModel()
 
-    @State var showSettingsScreen = false
+//    @State var showSettingsScreen = false
+//    @State var activeSheet: ActiveSheet = .first
     @State var presentAddNewItem = false
-
-    let sheetStyle = PartialSheetStyle(background: Color.clear,
-                                       handlerBarColor: Colors.subheadline,
-                                       enableCover: true,
-                                       coverColor: Color.black.opacity(0.6),
-                                       blurEffectStyle: nil,
-                                       cornerRadius: Sizes.xSmall,
-                                       minTopDistance: 0
-    )
 
     var body: some View {
         NavigationView {
             ZStack(alignment: .topLeading) {
                 Colors.background
-                    .edgesIgnoringSafeArea(.all)
 
                 // Main feed for posts
                 ScrollView(.vertical) {
@@ -54,22 +50,20 @@ struct ContentView: View {
                 }
 
                 // Add a new cell to the list and publish to Firestore
-//                if presentAddNewItem {
-//                    TaskCell(taskCellVM: TaskCellViewModel.newTask()) { result in
-//                        if case .success(let task) = result {
-//                            self.taskListVM.addTask(task: task)
-//                        }
-//                        self.presentAddNewItem.toggle()
-//                    }
-//                }
+                if presentAddNewItem {
+                    NewItemView(taskCellVM: TaskCellViewModel.newTask(), presenting: $presentAddNewItem) { result in
+                        if case .success(let task) = result {
+                            self.taskListVM.addTask(task: task)
+                            self.presentAddNewItem.toggle()
+                        }
+                    }
+                        .opacity(presentAddNewItem ? 1.0 : 0)
+                }
             }
                 .hideNavigationBar()
-                .sheet(isPresented: $showSettingsScreen) {
-                    SettingsView()
-                }
-                .addPartialSheet(style: sheetStyle)
         }
     }
+
 }
 
 struct ContentView_Previews: PreviewProvider {

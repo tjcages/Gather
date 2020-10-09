@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct SendButton: View {
-    @Binding var addTask: Bool
+    @State var expanded = false
+    
+    var buttonPressed: () -> () = { }
 
     let buttonColor = Colors.sienna
     let size = Sizes.xLarge - Sizes.Spacer
@@ -25,16 +27,28 @@ struct SendButton: View {
             )
             .padding(Sizes.xSmall)
             .contentShape(Rectangle())
+            .scaleEffect(expanded ? 0.8 : 1.0)
             .onTapGesture {
-                withAnimation(Animation.interactiveSpring()) {
-                    self.addTask.toggle()
+                withAnimation(Animation.easeInOut(duration: Animation.animationQuick)) {
+                    self.expandButton()
                 }
+                buttonPressed()
+        }
+    }
+    
+    func expandButton() {
+        expanded.toggle()
+
+        delayWithSeconds(Animation.animationIn) {
+            withAnimation(Animation.easeInOut(duration: Animation.animationQuick)) {
+                self.expanded.toggle()
+            }
         }
     }
 }
 
 struct SendButton_Previews: PreviewProvider {
     static var previews: some View {
-        SendButton(addTask: .constant(false))
+        SendButton()
     }
 }

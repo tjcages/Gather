@@ -52,7 +52,7 @@ public class PartialSheetManager: ObservableObject {
         self.content = AnyView(content())
         self.onDismiss = onDismiss
         DispatchQueue.main.async {
-            withAnimation {
+            withAnimation(Animation.easeOut(duration: Animation.animationQuick)) {
                 self.isPresented = true
             }
         }
@@ -72,7 +72,7 @@ public class PartialSheetManager: ObservableObject {
             self.onDismiss = onDismiss
         }
         if let isPresented = isPresented {
-            withAnimation {
+            withAnimation(Animation.easeOut(duration: Animation.animationIn)) {
                 self.isPresented = isPresented
             }
         }

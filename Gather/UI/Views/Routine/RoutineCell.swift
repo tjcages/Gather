@@ -8,28 +8,33 @@
 import SwiftUI
 
 struct RoutineCell: View {
+    @State var routine: Routine
+    
+    var timeFormatter: DateFormatter {
+        let formatter = DateFormatter()
+        formatter.timeStyle = .short
+        formatter.amSymbol = "am"
+        formatter.pmSymbol = "pm"
+        return formatter
+    }
+    
     var body: some View {
         VStack(alignment: .leading, spacing: Sizes.Spacer) {
             HStack(alignment: .center, spacing: 0) {
-                Text("Morning routine")
+                Text(routine.title)
                     .customFont(.heavy, category: .medium)
-                    .foregroundColor(Colors.orange)
+                    .foregroundColor(routine.color)
                     .padding(.horizontal, Sizes.Default)
+                    .fixedSize(horizontal: true, vertical: false)
                 
                 Rectangle()
                     .frame(height: 2)
-                    .foregroundColor(Colors.orange)
+                    .foregroundColor(routine.color)
             }
-            Text("7:00am")
+            Text("\(routine.start, formatter: timeFormatter)")
                 .customFont(.medium, category: .medium)
                 .foregroundColor(Colors.subheadline)
                 .padding(.horizontal, Sizes.Default)
         }
-    }
-}
-
-struct StructureCell_Previews: PreviewProvider {
-    static var previews: some View {
-        RoutineCell()
     }
 }

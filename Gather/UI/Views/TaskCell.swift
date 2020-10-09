@@ -27,18 +27,22 @@ struct TaskCell: View {
                         .customFont(.medium, category: .small)
                         .foregroundColor(taskCellVM.task.completed ? Colors.gray : Colors.subheadline)
 
-                    TextField("Enter task title", text: $taskCellVM.task.title,
-                        onCommit: {
-                            if !self.taskCellVM.task.title.isEmpty {
-                                self.onCommit(.success(self.taskCellVM.task))
-                            } else {
-                                self.onCommit(.failure(.empty))
-                            }
-                        })
-                        .id(taskCellVM.id)
+                    Text(taskCellVM.task.title)
+//                    TextField("Enter task title", text: $taskCellVM.task.title,
+//                        onCommit: {
+//                            if !self.taskCellVM.task.title.isEmpty {
+//                                self.onCommit(.success(self.taskCellVM.task))
+//                            } else {
+//                                self.onCommit(.failure(.empty))
+//                            }
+//                        })
+                    .id(taskCellVM.id)
                         .customFont(.medium, category: .medium)
                         .foregroundColor(taskCellVM.task.completed ? Colors.black : Colors.headline)
+                        .fixedSize(horizontal: false, vertical: true)
                 }
+
+                Spacer()
 
                 // Checkmark
                 Image(systemName: taskCellVM.completionStateIconName)
@@ -52,7 +56,7 @@ struct TaskCell: View {
                 }
             }
                 .frame(maxWidth: .infinity)
-                .padding(.all, Sizes.xSmall)
+                .padding(Sizes.xSmall)
         }
             .cornerRadius(Sizes.cornerRadius)
             .shadow()
