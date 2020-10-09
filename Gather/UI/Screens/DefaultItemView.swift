@@ -45,6 +45,7 @@ struct DefaultItemView: View {
                 //oncommit
             }
                 .padding(.leading, Sizes.xSmall)
+                .offset(y: Sizes.Spacer)
 
             VStack(alignment: .leading, spacing: 0) {
                 // Add an icon
@@ -115,7 +116,7 @@ struct DefaultItemView: View {
                     .padding(.top, Sizes.Spacer)
 
                 Spacer()
-                    .frame(height: 100)
+                    .frame(height: Sizes.Big)
             }
                 .padding(.top, Sizes.xSmall)
                 .padding(.horizontal, Sizes.Default)
@@ -127,7 +128,7 @@ struct DefaultItemView: View {
                     }
                 )
                 .onAppear {
-    //                titleFirstResponder = true
+                    //                titleFirstResponder = true
             }
         }
     }
