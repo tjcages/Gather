@@ -20,6 +20,7 @@ struct Task: Identifiable, Codable {
     var title: String
     var priority: TaskPriority
     var completed: Bool
+    var routineId: String
     @ServerTimestamp var createdTime: Timestamp?
     @ServerTimestamp var updatedTime = Timestamp.init(date: Date())
     var userId: String?
@@ -27,9 +28,9 @@ struct Task: Identifiable, Codable {
 
 #if DEBUG
 let testDataTasts = [
-    Task(title: "Implement UI", priority: .medium, completed: false),
-    Task(title: "Connect to Firebase", priority: .medium, completed: false),
-    Task(title: "Walk the dog", priority: .high, completed: false),
-    Task(title: "Profit!!", priority: .high, completed: false)
+    Task(title: "Implement UI", priority: .medium, completed: false, routineId: ""),
+    Task(title: "Connect to Firebase", priority: .medium, completed: false, routineId: ""),
+    Task(title: "Walk the dog", priority: .high, completed: false, routineId: ""),
+    Task(title: "Profit!!", priority: .high, completed: false, routineId: "")
 ]
 #endif

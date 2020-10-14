@@ -10,16 +10,19 @@ import Introspect
 
 struct NewItemView: View {
     @ObservedObject var taskCellVM: TaskCellViewModel
+    @ObservedObject var routineListVM: RoutineListViewModel
     @Binding var presenting: Bool
-    @State private var showing: Bool = false
 
     var onCommit: (Result<Task, InputError>) -> Void = { _ in }
 
     // MARK: - Private Properties
+    @State private var showing: Bool = false
 
     @State private var keyboardShowing = false
-    @State var offset: CGFloat = 0
+    @State private var offset: CGFloat = 0
+    
     @State private var showSchedule: Bool = false
+    @State private var showDuration: Bool = false
 
     let threshold: CGFloat = 100
 
@@ -30,19 +33,23 @@ struct NewItemView: View {
             Spacer()
 
             VStack(alignment: .leading, spacing: 0) {
-                if !showSchedule {
-                    DefaultItemView(taskCellVM: taskCellVM) { result in
+                if !showSchedule && !showDuration {
+                    DefaultItemView(taskCellVM: taskCellVM, routineListVM: routineListVM) { result in
                         onCommit(result)
                     } schedulePressed: {
-                        // Schedule pressed
-                        withAnimation() {
-                            self.showSchedule.toggle()
-                        }
+                        toggleSchedule()
                     } durationPressed: {
-                        // Duration pressed
+                        toggleDuration()
                     }
-                } else {
-                    ScheduleItemView()
+                        .transition(.move(edge: .bottom))
+                }
+                
+                if showSchedule {
+                    ScheduleView(routineListVM: routineListVM)
+                        .transition(.move(edge: .bottom))
+                } else if showDuration {
+                    DurationView()
+                        .transition(.move(edge: .bottom))
                 }
             }
                 .offset(y: showing ? offset : 364)
@@ -52,10 +59,16 @@ struct NewItemView: View {
             .edgesIgnoringSafeArea(.bottom)
             .background(
                 Colors.black
-                    .opacity(showing ? 0.4 : 0)
+                    .opacity(showing ? 0.6 : 0)
                     .edgesIgnoringSafeArea(.all)
                     .onTapGesture {
-                        dismiss()
+                        if !showSchedule && !showDuration {
+                            dismiss()
+                        } else if showSchedule {
+                            toggleSchedule()
+                        } else if showDuration {
+                            toggleDuration()
+                        }
                 }
             )
             .onAppear {
@@ -65,7 +78,9 @@ struct NewItemView: View {
                 notifier.addObserver(forName: willShow, object: nil, queue: .main, using: self.keyboardShow)
                 notifier.addObserver(forName: willHide, object: nil, queue: .main, using: self.keyboardHide)
 
-                showDisplay()
+                withAnimation(Animation.easeInOut(duration: Animation.animationIn)) {
+                    self.showing.toggle()
+                }
             }
             .onDisappear {
                 let notifier = NotificationCenter.default
@@ -73,15 +88,23 @@ struct NewItemView: View {
         }
     }
 
-    func showDisplay() {
+    func toggleSchedule() {
+        dismissKeyboard()
         withAnimation(Animation.easeInOut(duration: Animation.animationIn)) {
-            self.showing.toggle()
+            self.showSchedule.toggle()
+        }
+    }
+    
+    func toggleDuration() {
+        dismissKeyboard()
+        withAnimation(Animation.easeInOut(duration: Animation.animationIn)) {
+            self.showDuration.toggle()
         }
     }
 
     func dismiss() {
         let duration = Animation.animationIn
-        UIApplication.shared.endEditing()
+        dismissKeyboard()
         withAnimation(Animation.easeInOut(duration: duration)) {
             self.showing.toggle()
             delayWithSeconds(duration) {
@@ -119,18 +142,20 @@ extension NewItemView {
     private func onDragEnded(drag: DragGesture.Value) {
         let predictedTranslation = drag.predictedEndTranslation.height
 
+        offset = 0
         if predictedTranslation > threshold {
             if keyboardShowing {
                 dismissKeyboard()
+            } else if showSchedule {
+                toggleSchedule()
+            } else if showDuration {
+                toggleDuration()
             } else {
                 dismiss()
             }
         } else if predictedTranslation < -threshold {
             // Expand
             print("Expand") // Going to have to set bool for add item
-            offset = 0
-        } else {
-            offset = 0
         }
     }
 }

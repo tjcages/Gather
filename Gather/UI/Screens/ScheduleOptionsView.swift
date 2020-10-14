@@ -51,11 +51,11 @@ struct ScheduleOptionsView: View {
                 .fixedSize()
         }
             .padding(.all, Sizes.Spacer)
-            .padding(.horizontal, Sizes.Spacer)
+            .padding(.horizontal, Sizes.Spacer / 2)
             .contentShape(Rectangle())
             .overlay(
                 RoundedRectangle(cornerRadius: Sizes.Spacer)
-                    .stroke(scheduleColor, lineWidth: 1)
+                    .stroke(scheduleColor, lineWidth: 1.5)
             )
             .scaleEffect(expanded ? 1.1 : 1.0)
             .onTapGesture {

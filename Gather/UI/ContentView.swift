@@ -15,6 +15,7 @@ enum ActiveSheet {
 
 struct ContentView: View {
     @ObservedObject var taskListVM = TaskListViewModel()
+    @ObservedObject var routineListVM = RoutineListViewModel()
 
 //    @State var showSettingsScreen = false
 //    @State var activeSheet: ActiveSheet = .first
@@ -25,17 +26,20 @@ struct ContentView: View {
             ZStack(alignment: .topLeading) {
                 Colors.background
 
-                // Main feed for posts
-                ScrollView(.vertical) {
-                    VStack(alignment: .leading, spacing: Sizes.Spacer) {
-                        GreetingView()
-                            .padding(.top, Sizes.Spacer)
+                VStack(spacing: 0) {
+                    ContentHeaderView()
 
-                        RoutineView()
+                    // Main feed for posts
+                    ScrollView(.vertical, showsIndicators: false) {
+                        VStack(alignment: .leading, spacing: Sizes.Spacer) {
+                            GreetingView()
+
+                            RoutineView(taskListVM: taskListVM, routineListVM: routineListVM)
+                        }
                     }
+                        .offset(x: 0, y: 0)
+                        .background(Color.clear)
                 }
-                    .offset(x: 0, y: 0)
-                    .background(Color.clear)
 
                 // Bottom stack for buttons
                 VStack {
@@ -51,17 +55,23 @@ struct ContentView: View {
 
                 // Add a new cell to the list and publish to Firestore
                 if presentAddNewItem {
-                    NewItemView(taskCellVM: TaskCellViewModel.newTask(), presenting: $presentAddNewItem) { result in
+                    NewItemView(taskCellVM: TaskCellViewModel.newTask(), routineListVM: routineListVM, presenting: $presentAddNewItem) { result in
                         if case .success(let task) = result {
                             self.taskListVM.addTask(task: task)
                             self.presentAddNewItem.toggle()
                         }
                     }
-                        .opacity(presentAddNewItem ? 1.0 : 0)
                 }
             }
                 .hideNavigationBar()
         }
+//        .onAppear {
+//            delayWithSeconds(3) {
+//                for routine in testDataRoutines {
+//                    self.routineListVM.addRoutine(routine: routine)
+//                }
+//            }
+//        }
     }
 
 }

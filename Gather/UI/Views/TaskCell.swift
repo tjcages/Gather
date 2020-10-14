@@ -20,7 +20,18 @@ struct TaskCell: View {
                     .transition(.iris)
             }
 
-            HStack {
+            HStack(spacing: Sizes.xSmall) {
+                // Checkmark
+                Image(systemName: taskCellVM.completionStateIconName)
+                    .resizable()
+                    .frame(width: Sizes.Default, height: Sizes.Default)
+                    .foregroundColor(Colors.green)
+                    .onTapGesture {
+                        withAnimation(Animation.easeInOut(duration: Animation.animationIn)) {
+                            self.taskCellVM.task.completed.toggle()
+                        }
+                }
+                
                 // Details
                 VStack(alignment: .leading, spacing: 0) {
                     Text("11:45 to noon")
@@ -28,39 +39,20 @@ struct TaskCell: View {
                         .foregroundColor(taskCellVM.task.completed ? Colors.gray : Colors.subheadline)
 
                     Text(taskCellVM.task.title)
-//                    TextField("Enter task title", text: $taskCellVM.task.title,
-//                        onCommit: {
-//                            if !self.taskCellVM.task.title.isEmpty {
-//                                self.onCommit(.success(self.taskCellVM.task))
-//                            } else {
-//                                self.onCommit(.failure(.empty))
-//                            }
-//                        })
-                    .id(taskCellVM.id)
+                        .id(taskCellVM.id)
                         .customFont(.medium, category: .medium)
                         .foregroundColor(taskCellVM.task.completed ? Colors.black : Colors.headline)
                         .fixedSize(horizontal: false, vertical: true)
                 }
-
+                
                 Spacer()
-
-                // Checkmark
-                Image(systemName: taskCellVM.completionStateIconName)
-                    .resizable()
-                    .frame(width: Sizes.Large, height: Sizes.Large)
-                    .foregroundColor(Colors.green)
-                    .onTapGesture {
-                        withAnimation(Animation.easeInOut(duration: Animation.animationIn)) {
-                            self.taskCellVM.task.completed.toggle()
-                        }
-                }
             }
                 .frame(maxWidth: .infinity)
                 .padding(Sizes.xSmall)
         }
             .cornerRadius(Sizes.cornerRadius)
             .shadow()
-            .padding(.horizontal, Sizes.Default)
+            .padding(.horizontal, Sizes.xSmall)
     }
 }
 

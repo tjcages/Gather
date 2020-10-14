@@ -19,6 +19,7 @@ class AuthenticationService: ObservableObject {
     @Published var user: User?
     
     @LazyInjected private var taskRepository: TaskRepository
+    @LazyInjected private var routineRepository: RoutineRepository
     private var handle: AuthStateDidChangeListenerHandle?
 
     init() {

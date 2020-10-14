@@ -24,6 +24,10 @@ struct SendButton: View {
                 Color.white
                     .padding(Sizes.Spacer / 2)
                     .cornerRadius(Sizes.Large)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: Sizes.Large)
+                            .stroke(buttonColor, lineWidth: 2)
+                    )
             )
             .padding(Sizes.xSmall)
             .contentShape(Rectangle())

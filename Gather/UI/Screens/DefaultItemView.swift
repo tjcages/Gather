@@ -9,6 +9,7 @@ import SwiftUI
 
 struct DefaultItemView: View {
     @ObservedObject var taskCellVM: TaskCellViewModel
+    @ObservedObject var routineListVM: RoutineListViewModel
 
     @State var taskSelection: TaskItems = .task
 
@@ -105,7 +106,7 @@ struct DefaultItemView: View {
                 }
 
                 HStack(spacing: Sizes.xSmall) {
-                    ScheduleOptionsView(task: .schedule, title: "Today", scheduleColor: Colors.green, itemSelected: $scheduleSelection) {
+                    ScheduleOptionsView(task: .schedule, title: "Late work", scheduleColor: Colors.green, itemSelected: $scheduleSelection) {
                         schedulePressed()
                     }
 
@@ -128,7 +129,9 @@ struct DefaultItemView: View {
                     }
                 )
                 .onAppear {
-                    //                titleFirstResponder = true
+                    if taskCellVM.task.title.isEmpty {
+                        self.titleFirstResponder = true
+                    }
             }
         }
     }

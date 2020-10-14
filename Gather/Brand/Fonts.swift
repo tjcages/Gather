@@ -18,9 +18,9 @@ extension ContentSizeCategory {
     var size: CGFloat {
         switch self {
         case .extraSmall:
-            return 14
-        case .small:
             return 16
+        case .small:
+            return 18
         case .medium:
             return 20
         case .large:

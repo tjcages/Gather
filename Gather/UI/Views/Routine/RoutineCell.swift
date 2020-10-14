@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct RoutineCell: View {
-    @State var routine: Routine
+    @State var routineCellVM: RoutineCellViewModel
     
     var timeFormatter: DateFormatter {
         let formatter = DateFormatter()
@@ -21,17 +21,17 @@ struct RoutineCell: View {
     var body: some View {
         VStack(alignment: .leading, spacing: Sizes.Spacer) {
             HStack(alignment: .center, spacing: 0) {
-                Text(routine.title)
+                Text(routineCellVM.routine.title)
                     .customFont(.heavy, category: .medium)
-                    .foregroundColor(routine.color)
+                    .foregroundColor(routineCellVM.routine.useableColor)
                     .padding(.horizontal, Sizes.Default)
                     .fixedSize(horizontal: true, vertical: false)
                 
                 Rectangle()
                     .frame(height: 2)
-                    .foregroundColor(routine.color)
+                    .foregroundColor(routineCellVM.routine.useableColor)
             }
-            Text("\(routine.start, formatter: timeFormatter)")
+            Text("\(routineCellVM.routine.startTime, formatter: timeFormatter)")
                 .customFont(.medium, category: .medium)
                 .foregroundColor(Colors.subheadline)
                 .padding(.horizontal, Sizes.Default)

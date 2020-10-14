@@ -8,23 +8,27 @@
 import SwiftUI
 
 struct TaskListView: View {
-    @ObservedObject var taskListVM = TaskListViewModel()
-//    @Binding var presentAddNewItem: Bool
+    @ObservedObject var taskListVM: TaskListViewModel
+    @State var routineId: String
+
+    var tasks: [TaskCellViewModel] {
+        var tasks: [TaskCellViewModel] = []
+        for taskCellVM in taskListVM.taskCellViewModels {
+            if taskCellVM.task.routineId == routineId {
+                tasks.append(taskCellVM)
+            }
+        }
+        return tasks
+    }
 
     var body: some View {
         VStack(alignment: .leading, spacing: Sizes.xSmall) {
-            ForEach(taskListVM.taskCellViewModels) { taskCellVM in
+            ForEach(tasks) { taskCellVM in
                 TaskCell(taskCellVM: taskCellVM)
             }
                 .onDelete { indexSet in
                     self.taskListVM.removeTasks(atOffsets: indexSet)
             }
         }
-    }
-}
-
-struct TaskListView_Previews: PreviewProvider {
-    static var previews: some View {
-        TaskListView()
     }
 }
